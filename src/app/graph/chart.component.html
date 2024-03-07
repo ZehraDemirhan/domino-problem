@@ -1,0 +1,64 @@
+<div class="card-header ms-10 flex-row" >
+	<h3 class="card-title align-items-center mb-2 head-custom">
+		<div class="d-flex justify-content-between">
+			<div class="flex-1 mt-1">
+				<span class="card-label fs-1 mb-1 ms-1">Graph</span>
+				<span *ngIf="graphEnabled" class="text-muted fs-6 ms-2 "><i>(x-axis: {{axisNameMap[xAxis]}}, y-axis: Number of Subsets)</i></span>
+		
+			</div>
+			<div class="custom-select">
+				<i class="bi bi-info-circle-fill text-secondary fs-3 me-2 hover" popoverClass="popover-panel" title="Information" triggers="hover" placement="left" animation="true" [ngbPopover]="popContent">
+				</i>
+				<select class="form-select" aria-label="Default select example" (change)="selectXAxis($event)">
+					<option value="numDominoes" selected>Domino Count</option>
+					<option value="trialCount">Trial Count</option>
+					<option value="randomNumber">Weighted Number</option>
+				</select>
+			</div>
+		</div>
+		<div class="d-flex form-check form-switch justify-content-end align-items-center">
+			<input class="form-check-input fs-6 mt-2 ms-2 custom-switch" type="checkbox" role="switch" id="flexSwitchCheckChecked" (change)="graphEnabled = !graphEnabled">
+			<label class="form-check-label" for="flexSwitchCheckChecked" class="fs-6 mt-2 ms-2 text-muted"><i *ngIf="!graphEnabled">(Enable Graph)</i> <i *ngIf="graphEnabled">(Disable Graph)</i></label>
+		</div>
+	</h3>
+</div>
+
+<ng-template #popContent>
+	<div>
+		<h3>Instructions</h3>
+		<hr>
+		<p> We have three distinct variables for this graph to provide meaningful insights. When altering one variable, the other two should remain constant for accurate analysis. If you are providing a dataset that fits these instructions, you can toggle and enable graph drawing.</p>
+		<hr>
+		<ul>
+			<li>The y-axis consistently represents the minimum number of the subsets, namely results.</li>
+			<li>Users can select a variable from a dropdown menu to represent the x-axis</li>
+			<li>The remaining two variables must remain constant throughout the graph for accurate comparison.</li>
+		</ul>
+	</div>
+</ng-template>
+
+<div *ngIf="!graphEnabled" class="text-center">
+
+	<img class="w-25 mb-3" src="assets/17.png">
+
+	<p class="text-muted"><i>Graph drawing is currently disabled. Please read the instructions and toggle if you want to enable it.</i></p>
+</div>
+
+<div *ngIf="graphEnabled" class="card-body ms-8">
+	<div #chartRef id="kt_charts_widget_3_chart" [style.height]="'350px'">
+		<apx-chart
+			[series]="chartOptions.series"
+			[chart]="chartOptions.chart"
+			[xaxis]="chartOptions.xaxis"
+			[yaxis]="chartOptions.yaxis"
+			[dataLabels]="chartOptions.dataLabels"
+			[stroke]="chartOptions.stroke"
+			[legend]="chartOptions.legend"
+			[fill]="chartOptions.fill"
+			[states]="chartOptions.states"
+			[tooltip]="chartOptions.tooltip"
+			[colors]="chartOptions.colors"
+			[markers]="chartOptions.markers"
+		></apx-chart>
+	</div>
+</div>

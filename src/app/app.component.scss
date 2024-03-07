@@ -1,0 +1,110 @@
+.squared-paper {
+	background-image:
+		linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+	background-size: 20px 20px; /* Adjust the size of the grid squares */
+	background-color: #f9f9f9; /* Background color for the squared paper */
+	height: 'max-content';
+	padding-bottom: 100px;
+}
+
+.icon {
+	height: 65px;
+	margin-left: 30px;
+}
+
+.nav-bar {
+	background-color: #ffffff; 
+	border-width: 2px;
+	box-shadow: 3px 3px 10px #888888;
+}
+
+.nav-link-active {
+	&:hover {
+		background-color: #f0f0f0;
+		border-radius: 10px;
+		color:#79b3e2
+	}
+}
+.question-card {
+	background-color: #f0f0f0; 
+	border-radius: 10px; 
+	padding: 20px;
+	border-width: 2px;
+	border-style: solid;
+	border-color: #d07777;
+	box-shadow: 8px 8px 10px #b3b1b1;
+}
+
+.form-card {
+	background-color: #f0f0f0; 
+	border-radius: 10px; 
+	padding: 20px;
+	width: 500px;
+	margin-top: 10px;
+	border-width: 2px;
+	margin-left: 20px;
+	border-style: solid;
+	border-color: #000000;
+	box-shadow: 8px 8px 10px #888888;
+	height: 455px;
+}
+
+.result-card {
+	flex: 1;
+	background-color: #f0f0f0; 
+	border-radius: 10px; 
+	padding: 20px;
+	width: 500px;
+	margin-top: 10px;
+	border-width: 2px;
+	border-style: solid;
+	border-color: #79b3e2;
+	box-shadow: 8px 8px 10px #888888;
+	height: 455px;
+	overflow-y: hidden;
+	
+}
+
+.statistics-card {
+	background-color: #f0f0f0;
+	border-radius: 10px;
+	padding: 20px;
+	margin-top: 20px;
+	border-width: 2px;
+	border-style: solid;
+	border-color: #0c7c2e;
+	box-shadow: 8px 8px 10px #888888;
+}
+
+.graph-button {
+	background-color: #4CAF50;
+}
+
+.graph-icon {
+	width: 100px;
+}
+
+th {
+	background-color: #4CAF50;
+	color: white;
+}
+
+.custom-tr:hover {
+	background-color: #ddd; 
+}
+	
+.scroll-wrapper {
+	overflow-y: scroll;
+	max-height: 350px;
+}
+
+.hover {
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.table tr:nth-child(even) td{
+	background-color: #d9ece2;
+}
