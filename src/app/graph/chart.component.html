@@ -7,7 +7,7 @@
 		
 			</div>
 			<div class="custom-select">
-				<i class="bi bi-info-circle-fill text-secondary fs-3 me-2 hover" popoverClass="popover-panel" title="Information" triggers="hover" placement="left" animation="true" [ngbPopover]="popContent">
+				<i class="bi bi-info-circle-fill text-secondary fs-3 me-2 hover" popoverClass="popover-panel" title="Information" triggers="hover" placement="left" [animation]="true" [ngbPopover]="popContent" popoverClass="custom-pop">
 				</i>
 				<select class="form-select" aria-label="Default select example" (change)="selectXAxis($event)">
 					<option value="numDominoes" selected>Domino Count</option>

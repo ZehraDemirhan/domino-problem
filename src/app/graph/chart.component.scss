@@ -19,6 +19,9 @@
 	background-color: rgb(208, 220, 220);
 	border-radius: 5px;
 	padding: 8px;
-
 	border-bottom: 1px solid #a6c7b9;
+}
+
+::ng-deep .custom-pop {
+	width: 700px;
 }
