@@ -19,6 +19,19 @@ export class AppComponent {
 	numerator: number | undefined;
 	weightedNumber: number | undefined;
 
+	download() {
+		var a = document.createElement("a"); //Create <a>
+
+		// Create a csv content with the resultRecords array
+		let csvContent = "data:text/csv;charset=utf-8,";
+		csvContent += "Number of Dominoes,Trial Count,Weighted Number,Result\n";
+		this.resultRecords.forEach((record) => {
+			csvContent += `${record.numDominoes},${record.trialCount},${record.randomNumber.toFixed(3)},${record.result || 'Error'}\n`;
+		})
+		a.href = csvContent;
+		a.download = "Domino_Problem.csv";
+		a.click(); //Downloaded file
+	}
 
 	clearForm() {
 		this.numDominoes = undefined;

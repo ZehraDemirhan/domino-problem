@@ -1,4 +1,3 @@
-
 <div class="squared-paper">
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light nav-bar">
@@ -13,12 +12,15 @@
 					<li class="nav-item active">
 						<a class="nav-link nav-link-active" href="#">Domino Problem </a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link nav-link-active" href="#">Mathematical Background</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link nav-link-active" href="#">Credits</a>
-					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle nav-link-active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Credits
+						</a>
+						<ul class="dropdown-menu">
+						<li><a target="_blank" class="dropdown-item" href="https://github.com/ZehraDemirhan">Zehra Demirhan</a></li>
+						<li><a target="_blank" class="dropdown-item" href="https://github.com/eren-aeu">Adem Eren Uyanık</a></li>
+						</ul>
+					  </li>
 				</ul>
 			</div>
 		</nav>	
@@ -38,7 +40,13 @@
 			<div class="result-card">
 				<div class="d-flex justify-content-between mb-2 align-items-center">
 					<h2 class="mt-2">Results</h2>
-					<button type="button" class="btn btn-secondary mt-3" (click)="deleteAllRecords()">Delete All Records <i class="bi bi-trash2-fill"></i></button>
+					<div class="d-flex justify-content-end">
+						<button type="button" class="btn btn-sm btn-secondary mt-3 me-3" (click)="download()">
+							Download Table<i class="ms-2 bi bi-download"></i>
+						</button>
+						<button type="button" class="btn btn-sm btn-secondary mt-3" (click)="deleteAllRecords()">Delete All Records <i class="bi bi-trash2-fill"></i>
+						</button>
+					</div>
 					
 				</div>
 				<div class="scroll-wrapper">
@@ -54,11 +62,11 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr class="text-center align-middle custom-tr" *ngFor="let row of resultRecords; let i = index">
+							<tr class="text-end align-middle custom-tr" *ngFor="let row of resultRecords; let i = index">
 								<td class="text-muted">#{{i + 1}}</td>
 								<td>{{row.numDominoes}}</td>
 								<td>{{row.trialCount}}</td>
-								<td>{{row.randomNumber}}</td>
+								<td>{{row.randomNumber.toFixed(3)}}</td>
 								<td>
 									<span class="text-danger" *ngIf="!row.result">Error</span>
 									<span *ngIf="row.result">{{row.result}}</span>
@@ -116,6 +124,7 @@
 					</div>
 				</form>
 			</div>
+			
 		</div>
 		<div class="statistics-card">
 			<app-chart [resultRecords]="chartResultRecords"></app-chart>
@@ -139,11 +148,9 @@
 			</p>
 			<hr>
 		</ng-template>
-		
-	
 	</div>
 </div>
 
 
-
+ 
 
